@@ -1,0 +1,110 @@
+.login-container {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrapper {
+    padding: 3rem 2.5rem;
+    background-color: white;
+    border: 3px solid rgb(43, 43, 43);
+}
+
+.login-wrapper form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.login-wrapper form div {
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
+.login-wrapper form input {
+    height: 3.5rem;
+    width: 22rem;
+    outline: none;
+    border: 3px solid rgb(69, 69, 69);
+}
+.login-wrapper form button,
+.logout-btn {
+    background-color: #505050;
+    height: 3rem;
+    width: 100%;
+    margin-top: 10px;
+    color: white;
+    border: 3px solid rgb(148 152 156);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.login-wrapper form a {
+    color: cornflowerblue;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ADMIN */
+
+.admin-container {
+    margin: 1rem;
+}
+
+.upload-container {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed;
+    padding: 2rem;
+    gap: 2rem;
+}
+.upload-form div {
+    width: 100%;
+    font-size: 1.5rem;
+}
+.upload-form div > * {
+    font-size: 1.3rem;
+}
+
+.display-image {
+    height: 25rem;
+    border: 2px dashed;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.display-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.display-image div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.display-image div svg {
+    font-size: 6rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .upload-container {
+        grid-template-columns: 1fr;
+    }
+}
