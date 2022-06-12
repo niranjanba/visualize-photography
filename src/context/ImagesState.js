@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 import ImageContext from "./imageContext";
 import {
     collection,
@@ -14,8 +14,7 @@ function ImagesState(props) {
     const [images, setImages] = useState([]);
     const imagesCollectionRef = collection(db, "images");
     const uploadImage = async ({ image, category }) => {
-        const data = await addDoc(imagesCollectionRef, { image, category });
-        // setImages([...images, { image, category, id: data.id }]);
+        await addDoc(imagesCollectionRef, { image, category });
         getImages();
     };
     const deleteImage = async (id) => {

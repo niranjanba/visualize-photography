@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import PageNotFound from "./pages/PageNotFound";
 import ImagesState from "./context/ImagesState";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./utils/PrivateRoute";
 function App() {
     return (
