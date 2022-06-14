@@ -109,12 +109,44 @@ function GalleryImageViewer({
                         Kids
                     </button>
                     <button
+                        className={activeBtn === "prewedding" ? "active" : ""}
+                        onClick={() => {
+                            filterImages("prewedding");
+                        }}
+                    >
+                        Pre Wedding
+                    </button>
+                    <button
                         className={activeBtn === "events" ? "active" : ""}
                         onClick={() => {
                             filterImages("events");
                         }}
                     >
                         Events
+                    </button>
+                    <button
+                        className={activeBtn === "traditional" ? "active" : ""}
+                        onClick={() => {
+                            filterImages("traditional");
+                        }}
+                    >
+                        Traditional
+                    </button>
+                    <button
+                        className={activeBtn === "candid" ? "active" : ""}
+                        onClick={() => {
+                            filterImages("candid");
+                        }}
+                    >
+                        Candid
+                    </button>
+                    <button
+                        className={activeBtn === "babyshower" ? "active" : ""}
+                        onClick={() => {
+                            filterImages("babyshower");
+                        }}
+                    >
+                        Baby shower
                     </button>
                 </div>
             )}

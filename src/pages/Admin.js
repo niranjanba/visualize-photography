@@ -69,6 +69,10 @@ function Admin() {
                             <option value="birthday">Birthday</option>
                             <option value="kids">Kids</option>
                             <option value="events">Events</option>
+                            <option value="traditional">Traditional</option>
+                            <option value="prewedding">Pre Wedding</option>
+                            <option value="candid">Candid</option>
+                            <option value="babyshower">Baby Shower</option>
                         </select>
                     </div>
                     <button type="submit" className="btn btn-lg btn-primary">
