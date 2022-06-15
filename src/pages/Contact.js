@@ -71,16 +71,12 @@ function Contact() {
             fetch("/", {
                 method: "POST",
                 headers: {
-                    Accept: "application/x-www-form-urlencoded;charset=UTF-8",
-                    "Content-Type":
-                        "application/x-www-form-urlencoded;charset=UTF-8",
+                    "Content-Type": "application/x-www-form-urlencoded",
                 },
-                body: new URLSearchParams(formData).toString(),
-            }).then((res) => {
-                if (res) {
-                    console.log(res);
-                }
-            });
+                body: encode({ "form-name": "contact", ...bodyData }),
+            })
+                .then(() => console.log("submitter"))
+                .catch((error) => alert(error));
         }
     }, [formErrors]);
 
@@ -233,6 +229,7 @@ function Contact() {
                                             className="form-control"
                                             id="name"
                                             onChange={handleChange}
+                                            value={formValues.name}
                                         />
                                         <div className="validate">
                                             {formErrors.name}
@@ -246,6 +243,7 @@ function Contact() {
                                             name="email"
                                             id="email"
                                             onChange={handleChange}
+                                            value={formValues.email}
                                         />
                                         <div className="validate">
                                             {formErrors.email}
@@ -261,6 +259,7 @@ function Contact() {
                                             name="phone"
                                             id="phone"
                                             onChange={handleChange}
+                                            value={formValues.phone}
                                         />
                                         <div className="validate">
                                             {formErrors.phone}
@@ -280,6 +279,7 @@ function Contact() {
                                             name="service"
                                             defaultValue="Select Service"
                                             onChange={handleChange}
+                                            value={formValues.service}
                                         >
                                             <option
                                                 value="Select Service"
@@ -325,6 +325,7 @@ function Contact() {
                                         id="message"
                                         rows="10"
                                         onChange={handleChange}
+                                        value={formValues.message}
                                     ></textarea>
                                     <div className="validate">
                                         {formErrors.message}
