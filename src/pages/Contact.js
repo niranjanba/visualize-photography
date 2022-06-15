@@ -67,7 +67,7 @@ function Contact() {
                 service: formValues.service,
                 message: formValues.message,
             };
-            console.log(body);
+            const formData = new FormData(formRef.current);
             fetch("/contact", {
                 method: "POST",
                 headers: {
@@ -75,7 +75,7 @@ function Contact() {
                     "Content-Type":
                         "application/x-www-form-urlencoded;charset=UTF-8",
                 },
-                body: encode({ "form-name": "contact", ...body }),
+                body: new URLSearchParams(formData).toString(),
             })
                 .then((res) => {
                     if (res) {
@@ -219,6 +219,7 @@ function Contact() {
                                 className="php-email-form"
                                 onSubmit={handleSubmit}
                                 ref={formRef}
+                                data-netlify={true}
                             >
                                 <div className="form-row contact-details">
                                     <div className="form-group w-100">
