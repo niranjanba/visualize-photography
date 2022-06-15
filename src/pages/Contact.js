@@ -18,7 +18,6 @@ function Contact() {
         name: "",
         phone: "",
         email: "",
-        service: "",
         message: "",
     };
     const [formValues, setformValues] = useState(initialState);
@@ -64,10 +63,9 @@ function Contact() {
                 name: formValues.name,
                 phone: formValues.phone,
                 email: formValues.email,
-                service: formValues.service,
                 message: formValues.message,
             };
-            const formData = new FormData(formRef.current);
+            console.log(bodyData);
             fetch("/", {
                 method: "POST",
                 headers: {
@@ -98,9 +96,6 @@ function Contact() {
         } else if (!emailRegex.test(value.email)) {
             errors.email = "Please valid email id";
         }
-        if (!value.service) {
-            errors.service = "Please select a service";
-        }
         if (!value.message) {
             errors.message = "Write something to use";
         }
@@ -127,7 +122,6 @@ function Contact() {
                     We have received your message, we'll get back to you as soon
                     as posible.
                 </h5>
-                {/* <h6>coffee is on us</h6> */}
                 <span className="modal-footers">- Visualize Photography</span>
             </div>
         );
@@ -263,57 +257,6 @@ function Contact() {
                                         />
                                         <div className="validate">
                                             {formErrors.phone}
-                                        </div>
-                                    </div>
-                                    <div className="form-group w-100">
-                                        <label
-                                            htmlFor="service"
-                                            onChange={handleChange}
-                                        >
-                                            Select Service
-                                        </label>
-                                        <select
-                                            id="service"
-                                            className="form-select"
-                                            aria-label="Default select example"
-                                            name="service"
-                                            defaultValue="Select Service"
-                                            onChange={handleChange}
-                                            value={formValues.service}
-                                        >
-                                            <option
-                                                value="Select Service"
-                                                disabled
-                                            >
-                                                Select Service
-                                            </option>
-                                            <option value="wedding photography">
-                                                Wedding Photography
-                                            </option>
-                                            <option value="Pre Wedding Photoshoot">
-                                                Pre-Wedding Photography
-                                            </option>
-                                            <option value="birthday photography">
-                                                Birthday Photography
-                                            </option>
-                                            <option value="kids photography">
-                                                Kids Photography
-                                            </option>
-                                            <option value="events photography">
-                                                Events Photography
-                                            </option>
-                                            <option value="traditional phtography">
-                                                Traditional Photography
-                                            </option>
-                                            <option value="Baby shower">
-                                                Baby shower Photoshoot
-                                            </option>
-                                            <option value="candid photoshoot">
-                                                Candid Photoshoot
-                                            </option>
-                                        </select>
-                                        <div className="validate">
-                                            {formErrors.service}
                                         </div>
                                     </div>
                                 </div>
