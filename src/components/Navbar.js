@@ -4,6 +4,8 @@ import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useAuth } from "../context/AuthContext";
 
+import logo from "../images/logo.png";
+
 function Navbar() {
     const [showSocialMedia, setShowSocialMedia] = useState(true);
     const { logOut, currentUser } = useAuth();
@@ -29,8 +31,9 @@ function Navbar() {
     return (
         <nav className="main-nav">
             <div className="logo">
-                <span>V</span>isualize
-                <span>P</span>hotography
+                {/* <span>V</span>isualize
+                <span>P</span>hotography */}
+                <img src={logo} alt="" />
             </div>
             <div
                 className={

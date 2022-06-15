@@ -35,11 +35,20 @@ function Contact() {
         if (isSubmit) validate(formValues);
     };
 
+    const encode = (data) => {
+        return Object.keys(data)
+            .map(
+                (key) =>
+                    encodeURIComponent(key) +
+                    "=" +
+                    encodeURIComponent(data[key])
+            )
+            .join("&");
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormErrors(validate(formValues));
         setIsSubmit(true);
-        formRef.current.reset();
     };
 
     useEffect(() => {
@@ -49,6 +58,7 @@ function Contact() {
                 setIsLoading(false);
                 setIsShowModal(true);
             }, 1000);
+            formRef.current.reset();
             const body = {
                 name: formValues.name,
                 phone: formValues.phone,
@@ -56,6 +66,15 @@ function Contact() {
                 service: formValues.service,
                 message: formValues.message,
             };
+            fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: encode({ "form-name": "contact", ...body }),
+            })
+                .then(() => alert("Success!"))
+                .catch((error) => alert(error));
         }
     }, [formErrors]);
 
@@ -188,6 +207,7 @@ function Contact() {
                             className="php-email-form"
                             onSubmit={handleSubmit}
                             ref={formRef}
+                            data-netlify={true}
                         >
                             <div className="form-row contact-details">
                                 <div className="form-group w-100">

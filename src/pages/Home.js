@@ -2,17 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import GalleryImageViewer from "../components/GalleryImageViewer";
 
-import logo from "../images/logo.png";
-
 function Home() {
     return (
         <>
             {/* hero section */}
             <section className="hero-section">
                 <div className="hero-wrapper">
-                    <div className="hero-logo">
-                        <img src={logo} alt="" />
-                    </div>
                     <div className="hero-title">
                         <div className="hero-heading">
                             <h1>Looking for Best&nbsp;</h1>

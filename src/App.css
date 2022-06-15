@@ -33,8 +33,10 @@ li {
     display: flex;
     align-items: center;
     grid-column: 2/3;
-    font-size: 2rem;
-    font-weight: bold;
+}
+
+.logo img {
+    width: 11rem;
 }
 .menu-link {
     /* display: flex; */
