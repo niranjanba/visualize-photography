@@ -68,14 +68,20 @@ function Contact() {
                 message: formValues.message,
             };
             console.log(body);
-            fetch("/", {
+            fetch("/contact", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    Accept: "application/x-www-form-urlencoded;charset=UTF-8",
+                    "Content-Type":
+                        "application/x-www-form-urlencoded;charset=UTF-8",
                 },
-                body: encode({ "form-name": "contact-form", ...body }),
+                body: encode({ "form-name": "contact", ...body }),
             })
-                .then((data) => console.log(data))
+                .then((res) => {
+                    if (res) {
+                        console.log(res);
+                    }
+                })
                 .catch((error) => console.log(error));
         }
     }, [formErrors]);
