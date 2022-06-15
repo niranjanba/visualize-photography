@@ -68,7 +68,7 @@ function Contact() {
                 message: formValues.message,
             };
             const formData = new FormData(formRef.current);
-            fetch("/contact", {
+            fetch("/#contact", {
                 method: "POST",
                 headers: {
                     Accept: "application/x-www-form-urlencoded;charset=UTF-8",
