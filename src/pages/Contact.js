@@ -36,7 +36,7 @@ function Contact() {
         if (isSubmit) validate(formValues);
     };
 
-    const encode = (data) => {
+    function encode(data) {
         return Object.keys(data)
             .map(
                 (key) =>
@@ -45,7 +45,7 @@ function Contact() {
                     encodeURIComponent(data[key])
             )
             .join("&");
-    };
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormErrors(validate(formValues));
@@ -60,29 +60,25 @@ function Contact() {
                 setIsShowModal(true);
             }, 1000);
             formRef.current.reset();
-            const body = {
+            const bodyData = {
                 name: formValues.name,
                 phone: formValues.phone,
                 email: formValues.email,
                 service: formValues.service,
                 message: formValues.message,
             };
-            const formData = new FormData(formRef.current);
-            fetch("/#contact", {
+            fetch("/", {
                 method: "POST",
                 headers: {
-                    Accept: "application/x-www-form-urlencoded;charset=UTF-8",
-                    "Content-Type":
-                        "application/x-www-form-urlencoded;charset=UTF-8",
+                    "Content-Type": "application/x-www-form-urlencoded",
                 },
-                body: new URLSearchParams(formData).toString(),
+                body: encode({
+                    "form-name": "contact",
+                    ...bodyData,
+                }),
             })
-                .then((res) => {
-                    if (res) {
-                        console.log(res);
-                    }
-                })
-                .catch((error) => console.log(error));
+                .then((data) => console.log(data))
+                .catch((error) => alert(error));
         }
     }, [formErrors]);
 
