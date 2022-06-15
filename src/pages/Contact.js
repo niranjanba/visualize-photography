@@ -75,8 +75,8 @@ function Contact() {
                 },
                 body: encode({ "form-name": "contact-form", ...body }),
             })
-                .then(() => alert("Success!"))
-                .catch((error) => alert(error));
+                .then((data) => console.log(data))
+                .catch((error) => console.log(error));
         }
     }, [formErrors]);
 
