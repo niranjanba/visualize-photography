@@ -67,18 +67,20 @@ function Contact() {
                 service: formValues.service,
                 message: formValues.message,
             };
+            const formData = new FormData(formRef.current);
             fetch("/", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    Accept: "application/x-www-form-urlencoded;charset=UTF-8",
+                    "Content-Type":
+                        "application/x-www-form-urlencoded;charset=UTF-8",
                 },
-                body: encode({
-                    "form-name": "contact",
-                    ...bodyData,
-                }),
-            })
-                .then((data) => console.log(data))
-                .catch((error) => alert(error));
+                body: new URLSearchParams(formData).toString(),
+            }).then((res) => {
+                if (res) {
+                    console.log(res);
+                }
+            });
         }
     }, [formErrors]);
 
@@ -218,6 +220,11 @@ function Contact() {
                                 data-netlify={true}
                             >
                                 <div className="form-row contact-details">
+                                    <input
+                                        type="hidden"
+                                        name="form-name"
+                                        value="contact"
+                                    />
                                     <div className="form-group w-100">
                                         <label htmlFor="name">Your Name</label>
                                         <input
