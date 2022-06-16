@@ -24,6 +24,18 @@ function Home() {
                                 <li>
                                     <span>Birthday</span>
                                 </li>
+                                <li>
+                                    <span>Pre Wedding</span>
+                                </li>
+                                <li>
+                                    <span>House Warming</span>
+                                </li>
+                                <li>
+                                    <span>Candid</span>
+                                </li>
+                                <li>
+                                    <span>Baby Shower</span>
+                                </li>
                             </ul>
                             <h1>&nbsp;Photographer</h1>
                         </div>
@@ -113,6 +125,15 @@ function Home() {
                             <h4>
                                 Looking for Event Phtographer? you are at the
                                 right place.
+                            </h4>
+                        </div>
+                    </div>
+                    <div className="service housewarming">
+                        <div className="typography">
+                            <h1>House Warming</h1>
+                            <h4>
+                                A new house is a dream comes true, let's capture
+                                the memorable moment.
                             </h4>
                         </div>
                     </div>

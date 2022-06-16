@@ -55,6 +55,11 @@
     margin: 1rem;
 }
 
+.images-grid h3 {
+    text-align: center;
+    margin: 3rem;
+}
+
 .upload-container {
     padding: 1rem;
     display: grid;

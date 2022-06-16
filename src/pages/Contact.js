@@ -58,14 +58,13 @@ function Contact() {
                 setIsLoading(false);
                 setIsShowModal(true);
             }, 1000);
-            formRef.current.reset();
             const bodyData = {
                 name: formValues.name,
                 phone: formValues.phone,
                 email: formValues.email,
                 message: formValues.message,
             };
-            console.log(bodyData);
+            setformValues(initialState);
             fetch("/", {
                 method: "POST",
                 headers: {
@@ -92,12 +91,12 @@ function Contact() {
             errors.phone = "Please enter valid phone number";
         }
         if (!value.email) {
-            errors.email = "Please enter your email number";
+            errors.email = "Please enter your email id";
         } else if (!emailRegex.test(value.email)) {
-            errors.email = "Please valid email id";
+            errors.email = "Please enter valid email id";
         }
         if (!value.message) {
-            errors.message = "Write something to use";
+            errors.message = "Write something to us";
         }
         return errors;
     };
@@ -181,14 +180,13 @@ function Contact() {
                                 <div className="mapouter">
                                     <div className="gmap_canvas">
                                         <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.012600898512!2d77.49070341384429!3d13.034869417015967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d778c80e4ab%3A0x10bcdeaf78f0e105!2sHydro%20E11%20Studios!5e0!3m2!1sen!2sin!4v1636468529837!5m2!1sen!2sin"
-                                            frameBorder="0"
-                                            style={{
-                                                border: "0",
-                                                width: "100%",
-                                                height: "290px",
-                                            }}
-                                            allowFullScreen
+                                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7776.022428826883!2d77.53795736871126!3d12.971134063424596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNear%20XGCR%2B2W7%2C%202nd%20Cross%20%20Rd%2C%20Hoshalli%20Extension%2C%20Stage%201%2C%20%20%3F%20%20Vijayanagar%2C%20Bengaluru%2C%20Karnataka%20%20560040!5e0!3m2!1sen!2sin!4v1655308046291!5m2!1sen!2sin"
+                                            width="310"
+                                            height="300"
+                                            style={{ border: 0 }}
+                                            allowFullScreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"
                                         ></iframe>
                                     </div>
                                 </div>

@@ -29,15 +29,15 @@ function Login() {
                 await signIn(values.email, values.password);
                 navigate("/admin");
             } catch (error) {
-                setError("Email or password is not valid");
+                setError("You are not authorized to visit this size");
             }
-        else setError("Please enter the details");
+        else setError("Please enter the correct details");
     };
     return (
         <div className="login-container">
             <div className="login-wrapper" onSubmit={handleSubmit}>
                 <form>
-                    <h2>Login Account</h2>
+                    <h2>Admin Login</h2>
                     <div>
                         <label htmlFor="email">Email</label>
                         <input

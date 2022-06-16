@@ -9,6 +9,7 @@ function Gallery() {
             <div className="gallery-container">
                 <div className="heading">
                     <h1>Gallery</h1>
+                    <p>Have a look at some of our work</p>
                 </div>
                 {images.length ? (
                     <GalleryImageViewer images={images} showFilter={true} />

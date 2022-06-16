@@ -97,12 +97,7 @@ function Navbar() {
             <div className="social-media">
                 <ul>
                     <li>
-                        <a href="https://facebook.com">
-                            <AiFillFacebook className="facebook" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com">
+                        <a href="https://instagram.com/_visualize_photography_?igshid=YmMyMTA2M2Y=">
                             <AiFillInstagram className="instagram" />
                         </a>
                     </li>

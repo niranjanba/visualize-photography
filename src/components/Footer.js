@@ -8,10 +8,9 @@ function Footer() {
                 <h2>follow us</h2>
                 <ul>
                     <li>
-                        <AiFillFacebook className="facebook" />
-                    </li>
-                    <li>
-                        <AiFillInstagram className="instagram" />
+                        <a href="https://instagram.com/_visualize_photography_?igshid=YmMyMTA2M2Y=">
+                            <AiFillInstagram className="instagram" />
+                        </a>
                     </li>
                 </ul>
             </div>
