@@ -263,20 +263,6 @@ function Contact() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="form-group">
-                                    <label htmlFor="name">Message</label>
-                                    <textarea
-                                        className="form-control"
-                                        name="message"
-                                        id="message"
-                                        rows="10"
-                                        onChange={handleChange}
-                                        value={formValues.message}
-                                    ></textarea>
-                                    <div className="validate">
-                                        {formErrors.message}
-                                    </div>
-                                </div>
                                 <select
                                     id="service"
                                     className="form-select"
@@ -316,6 +302,21 @@ function Contact() {
                                 <div className="validate">
                                     {formErrors.service}
                                 </div>
+                                <div className="form-group">
+                                    <label htmlFor="name">Message</label>
+                                    <textarea
+                                        className="form-control"
+                                        name="message"
+                                        id="message"
+                                        rows="10"
+                                        onChange={handleChange}
+                                        value={formValues.message}
+                                    ></textarea>
+                                    <div className="validate">
+                                        {formErrors.message}
+                                    </div>
+                                </div>
+
                                 <div className="text-center">
                                     <button className="submit" type="submit">
                                         Request a callback
