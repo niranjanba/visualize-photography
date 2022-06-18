@@ -19,6 +19,7 @@ function Contact() {
         phone: "",
         email: "",
         message: "",
+        service: "",
     };
     const [formValues, setformValues] = useState(initialState);
     const [formErrors, setFormErrors] = useState({});
@@ -63,6 +64,7 @@ function Contact() {
                 phone: formValues.phone,
                 email: formValues.email,
                 message: formValues.message,
+                service: formValues.service,
             };
             setformValues(initialState);
             fetch("/", {
@@ -94,6 +96,9 @@ function Contact() {
             errors.email = "Please enter your email id";
         } else if (!emailRegex.test(value.email)) {
             errors.email = "Please enter valid email id";
+        }
+        if (!value.service) {
+            errors.service = "Please select a service";
         }
         if (!value.message) {
             errors.message = "Write something to us";
@@ -271,6 +276,45 @@ function Contact() {
                                     <div className="validate">
                                         {formErrors.message}
                                     </div>
+                                </div>
+                                <select
+                                    id="service"
+                                    className="form-select"
+                                    aria-label="Default select example"
+                                    name="service"
+                                    defaultValue="Select Service"
+                                    onChange={handleChange}
+                                >
+                                    <option value="Select Service" disabled>
+                                        Select Service
+                                    </option>
+                                    <option value="wedding photography">
+                                        Wedding Photography
+                                    </option>
+                                    <option value="Pre Wedding Photoshoot">
+                                        Pre-Wedding Photography
+                                    </option>
+                                    <option value="birthday photography">
+                                        Birthday Photography
+                                    </option>
+                                    <option value="kids photography">
+                                        Kids Photography
+                                    </option>
+                                    <option value="events photography">
+                                        Events Photography
+                                    </option>
+                                    <option value="traditional phtography">
+                                        Traditional Photography
+                                    </option>
+                                    <option value="Baby shower">
+                                        Baby shower Photoshoot
+                                    </option>
+                                    <option value="candid photoshoot">
+                                        Candid Photoshoot
+                                    </option>
+                                </select>
+                                <div className="validate">
+                                    {formErrors.service}
                                 </div>
                                 <div className="text-center">
                                     <button className="submit" type="submit">
