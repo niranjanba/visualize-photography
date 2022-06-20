@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import GalleryImageViewer from "../components/GalleryImageViewer";
+import VideoSlider from "../components/VideoSlider";
 
 function Home() {
     return (
@@ -58,6 +59,15 @@ function Home() {
                 <button className="view-more">
                     <Link to={"/gallery"}>View More</Link>
                 </button>
+            </section>
+
+            {/* Video section */}
+            <section className="video-section">
+                <div className="title">
+                    <h1>Candid Videos</h1>
+                    <p>Take a look at candid videos</p>
+                </div>
+                <VideoSlider />
             </section>
 
             {/* services section */}

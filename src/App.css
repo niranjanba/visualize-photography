@@ -272,7 +272,8 @@ span {
 /* portfolio */
 
 .portfolio-section,
-.services-section {
+.services-section,
+.video-section {
     padding: 3rem 2rem;
     display: flex;
     justify-content: center;
@@ -282,7 +283,8 @@ span {
 }
 
 .services-section title,
-.portfolio-section title {
+.portfolio-section title,
+.video-section title {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -290,13 +292,15 @@ span {
 }
 
 .portfolio-section h1,
-.services-section h1 {
+.services-section h1,
+.video-section h1 {
     font-size: 3rem;
     text-align: center;
     position: relative;
 }
 
 .portfolio-section .title > h1::after,
+.video-section .title > h1::after,
 .services-section .title > h1::after {
     content: "";
     position: absolute;
@@ -309,7 +313,8 @@ span {
 }
 
 .portfolio-section p,
-.services-section p {
+.services-section p,
+.video-section p {
     font-family: "Abril Fatface", cursive;
     font-size: 2rem;
     font-weight: 100;
@@ -335,6 +340,71 @@ span {
     background-color: gray;
     color: white;
     box-shadow: 10px rgba(0, 0, 0, 0.3);
+}
+
+/* VIDEO */
+.videoplayer-container {
+    width: 80vw;
+    height: 90vh;
+    margin: 2rem;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.videoplayer-container video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.videoplayer-container .arrow {
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    font-size: 4rem;
+    transform: translateY(-60%);
+    display: none;
+    cursor: pointer;
+}
+
+.videoplayer-container .arrow svg {
+    color: white;
+}
+.videoplayer-container .disable svg {
+    color: rgba(255, 255, 255, 0.146);
+}
+
+.videoplayer-container .next {
+    right: 1rem;
+}
+.videoplayer-container .prev {
+    left: 1rem;
+}
+
+.videoplayer-container:hover > .arrow {
+    display: block;
+}
+
+.container-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+.videoplayer-container:hover > .container-dots {
+    display: flex;
+}
+.dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 3px solid #f1f1f1;
+    margin: 0 5px;
+    background: #f1f1f1;
+}
+.dot.active {
+    background: rgb(32, 32, 32);
 }
 
 .services {
@@ -605,6 +675,24 @@ span {
 
     .image-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    /* VIDEO */
+    .videoplayer-container {
+        width: 90vw;
+        height: 23vh;
+    }
+
+    .videoplayer-container .arrow {
+        display: block;
+    }
+
+    .container-dots {
+        bottom: -3rem;
+    }
+
+    .dot {
+        background-color: #696969;
     }
 
     /* services */

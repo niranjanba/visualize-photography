@@ -11,34 +11,40 @@ import {
 import db from "../firebase-config";
 
 function ImagesState(props) {
-    const [images, setImages] = useState([]);
-    const imagesCollectionRef = collection(db, "images");
-    const uploadImage = async ({ image, category }) => {
-        await addDoc(imagesCollectionRef, { image, category });
-        getImages();
+    const contentCollectionRef = collection(db, "content");
+    const [content, setContent] = useState([]);
+    const uploadImage = async ({ url, category, type }) => {
+        await addDoc(contentCollectionRef, { url, category, type });
+        getContent();
     };
     const deleteImage = async (id) => {
-        const imageDoc = doc(db, "images", id);
+        const imageDoc = doc(db, "content", id);
         await deleteDoc(imageDoc);
-        getImages();
+        getContent();
     };
 
     const updateImage = async (ele) => {
-        const image = doc(db, "images", ele.id);
+        const image = doc(db, "content", ele.id);
         await updateDoc(image, { stared: !ele.stared });
-        getImages();
+        getContent();
     };
 
-    const getImages = async () => {
-        const data = await getDocs(imagesCollectionRef);
-        setImages(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    useEffect(() => {
-        getImages();
+    const getContent = useCallback(async () => {
+        const data = await getDocs(contentCollectionRef);
+        setContent(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     }, []);
+
+    useEffect(() => {
+        getContent();
+    }, [getContent]);
     return (
         <ImageContext.Provider
-            value={{ images, uploadImage, deleteImage, updateImage }}
+            value={{
+                content,
+                uploadImage,
+                deleteImage,
+                updateImage,
+            }}
         >
             {props.children}
         </ImageContext.Provider>

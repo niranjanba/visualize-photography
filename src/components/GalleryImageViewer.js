@@ -9,10 +9,11 @@ function GalleryImageViewer({
     showStar,
     showStaredOnly,
 }) {
-    const { deleteImage, updateImage, images } = useImageContext();
+    const { deleteImage, updateImage, content } = useImageContext();
+
     const [popImage, setPopImage] = useState(undefined);
     const [activeBtn, setActiveBtn] = useState(0);
-    const [allImages, setAllImages] = useState(images);
+    const [allImages, setAllImages] = useState(content);
     const [filteredImages, setFilteredImages] = useState(allImages);
 
     const handleSetPopImage = (idx) => {
@@ -51,21 +52,21 @@ function GalleryImageViewer({
 
     const updateFilterImages = (idx) => {
         if (idx !== 0) {
-            const filteredImgs = images.filter((ele) => {
+            const filteredImgs = content.filter((ele) => {
                 return ele.category === idx;
             });
             setFilteredImages([...filteredImgs]);
         } else {
-            setFilteredImages(images);
+            setFilteredImages(content);
         }
     };
 
     useEffect(() => {
-        setAllImages(images);
+        setAllImages(content);
         updateFilterImages(activeBtn);
-    }, [images]);
+    }, [content]);
 
-    if (!images.length) {
+    if (!content.length) {
         return (
             <div>
                 <p>Loading...</p>
@@ -157,22 +158,32 @@ function GalleryImageViewer({
                         return (
                             ele.stared && (
                                 <div className="image-viewer" key={idx}>
-                                    <img
-                                        src={ele.image}
-                                        alt=""
-                                        onClick={() => handleSetPopImage(idx)}
-                                    />
+                                    {ele.type === "image" && (
+                                        <img
+                                            src={ele.url}
+                                            alt="images"
+                                            onClick={() =>
+                                                handleSetPopImage(idx)
+                                            }
+                                        />
+                                    )}
                                 </div>
                             )
                         );
                     } else {
                         return (
                             <div className="image-viewer" key={idx}>
-                                <img
-                                    src={ele.image}
-                                    alt=""
-                                    onClick={() => handleSetPopImage(idx)}
-                                />
+                                {ele.type === "image" ? (
+                                    <img
+                                        src={ele.url}
+                                        alt="images"
+                                        onClick={() => handleSetPopImage(idx)}
+                                    />
+                                ) : (
+                                    <div className="video-player">
+                                        <video src={ele.url} controls />
+                                    </div>
+                                )}
                                 {showDeleteIcons && (
                                     <div
                                         className="delete-icon"
@@ -200,7 +211,7 @@ function GalleryImageViewer({
             </div>
             <div className={popImage ? "pop-image" : "disp-none"}>
                 <span onClick={handleClosePopImage}>&times;</span>
-                <img src={popImage ? popImage.image : ""} alt="" />
+                <img src={popImage ? popImage.url : ""} alt="" />
             </div>
         </div>
     );
