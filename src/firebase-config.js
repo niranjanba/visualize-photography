@@ -2,13 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore/lite";
 
+console.log(process.env.REACT_APP_API_KEY);
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    apiKey: 'AIzaSyDAaZjhJhdK2NSRgYmh-WncsLTJ8OGk-PY',
+    authDomain: 'visualize-photography.firebaseapp.com',
     projectId: "visualize-photography",
     storageBucket: "visualize-photography.appspot.com",
     messagingSenderId: "888101784503",
-    appId: process.env.REACT_APP_APP_ID,
+    appId: '1:888101784503:web:3277776b2bf5f2dd903632',
     measurementId: "G-TNV337VTZZ",
 };
 
