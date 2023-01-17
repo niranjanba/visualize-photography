@@ -8,7 +8,7 @@ function Admin() {
         <div className="admin-container">
             <IVuploader />
             <div className="images-grid">
-                <h3>Images</h3>
+                <h3>Images and Videos</h3>
                 <GalleryImageViewer
                     showFilter={true}
                     showDeleteIcons={true}

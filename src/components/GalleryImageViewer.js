@@ -69,7 +69,7 @@ function GalleryImageViewer({
     if (!content.length) {
         return (
             <div>
-                <p>Loading...</p>
+                <p>No Images and Video</p>
             </div>
         );
     }

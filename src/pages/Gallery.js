@@ -3,7 +3,7 @@ import GalleryImageViewer from "../components/GalleryImageViewer";
 import imageContext from "../context/imageContext";
 
 function Gallery() {
-    const { images } = useContext(imageContext);
+    const { content } = useContext(imageContext);
     return (
         <>
             <div className="gallery-container">
@@ -11,10 +11,10 @@ function Gallery() {
                     <h1>Gallery</h1>
                     <p>Have a look at some of our work</p>
                 </div>
-                {images.length ? (
-                    <GalleryImageViewer images={images} showFilter={true} />
+                {content && content.length ? (
+                    <GalleryImageViewer content={content} showFilter={true} />
                 ) : (
-                    <div>Loading...</div>
+                    <h3>No Images and Videos</h3>
                 )}
             </div>
         </>
